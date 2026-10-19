@@ -2,11 +2,13 @@ import { Link } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 import { SignUp } from "@/components/sign-up";
+import { SocialSignIn } from "@/lib/social-sign-in";
 
 export default function SignupScreen() {
   return (
     <View style={styles.container}>
       <SignUp />
+      <SocialSignIn />
 
       <Link href="/login" style={styles.link}>
         Already have an account? Log in

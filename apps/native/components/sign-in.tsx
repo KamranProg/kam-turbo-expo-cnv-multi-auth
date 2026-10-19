@@ -1,5 +1,3 @@
-// apps/native/components/sign-in.tsx
-
 import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
 import {
@@ -36,8 +34,13 @@ function SignIn() {
           password: value.password,
         },
         {
-          onError(error) {
-            setError(error.error?.message || "Failed to sign in");
+          onError({ error }) {
+            setError(
+              error.code === "INVALID_EMAIL_OR_PASSWORD" ||
+                error.code === "INVALID_CREDENTIALS"
+                ? "Incorrect email or password. If you registered with Google, use Continue with Google."
+                : error.message || "Unable to sign in. Please try again.",
+            );
           },
           onSuccess() {
             setError(null);
@@ -70,14 +73,16 @@ function SignIn() {
             <>
               {formError ? (
                 <View
+                  accessibilityRole="alert"
                   style={[
                     styles.errorContainer,
-                    { backgroundColor: theme.notification + "20" },
+                    {
+                      backgroundColor: theme.card,
+                      borderColor: theme.notification,
+                    },
                   ]}
                 >
-                  <Text
-                    style={[styles.errorText, { color: theme.notification }]}
-                  >
+                  <Text style={[styles.errorText, { color: theme.text }]}>
                     {formError}
                   </Text>
                 </View>

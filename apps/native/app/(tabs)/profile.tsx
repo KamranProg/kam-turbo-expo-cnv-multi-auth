@@ -11,6 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { authClient } from "@/lib/auth-client";
 import { DESIGN_TOKENS } from "@/lib/design-tokens";
 import { useColorScheme } from "@/lib/use-color-scheme";
+import { ConnectedAccounts } from "@/components/connected-accounts";
 
 const { spacing, radius, typography, touchTarget } = DESIGN_TOKENS;
 
@@ -75,6 +76,8 @@ export default function ProfileScreen() {
             {error}
           </Text>
         ) : null}
+
+        <ConnectedAccounts />
 
         <Pressable
           accessibilityRole="button"

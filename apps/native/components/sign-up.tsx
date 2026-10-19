@@ -1,5 +1,3 @@
-// apps/native/components/sign-up.tsx
-
 import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
 import {
@@ -72,14 +70,16 @@ function SignUp() {
             <>
               {formError ? (
                 <View
+                  accessibilityRole="alert"
                   style={[
                     styles.errorContainer,
-                    { backgroundColor: theme.notification + "20" },
+                    {
+                      backgroundColor: theme.card,
+                      borderColor: theme.notification,
+                    },
                   ]}
                 >
-                  <Text
-                    style={[styles.errorText, { color: theme.notification }]}
-                  >
+                  <Text style={[styles.errorText, { color: theme.text }]}>
                     {formError}
                   </Text>
                 </View>

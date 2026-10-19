@@ -13,10 +13,14 @@ export const authFormStyles = StyleSheet.create({
   },
   errorContainer: {
     marginBottom: 12,
-    padding: 8,
+    padding: 12,
+    borderWidth: 1,
+    borderRadius: 8,
   },
   errorText: {
     fontSize: 14,
+    lineHeight: 20,
+    flexShrink: 1,
   },
   input: {
     borderWidth: 1,
